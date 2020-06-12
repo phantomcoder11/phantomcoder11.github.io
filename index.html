@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+	<meta name="name" content="TIC-TAC-TOE">
+	<meta name="robots" content="noindex,nofollow">
+	<title>TIC TAC TOE</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="project1.css"> -->
+	<style>
+body{
+            text-align: center;
+			font-family: Source Sans Pro;
+			background: #2828;
+			background: linear-gradient(-45deg,#EE7752, #E73C7E, #23A6D5, #23D5AB);
+			background-size: 2000% 2000%;
+			animation: Gradient 15s ease infinite;	
+
+}
+@-webkit-keyframes Gradient {
+			0%{
+				background-position: 0% 50%;
+			}
+			50%{
+				background-position: 100% 50%;
+			}
+			100%{
+				background-position: 0% 50%;
+			}
+		}
+
+		li{
+			list-style: none;
+			margin:30px 25px;
+			display: inline-block;
+			font-size: 30px;
+			padding: 15px 20px;
+			color: #fff;
+			border:1px solid #fff;
+			border-radius: 50%;
+			transition: .5s;
+		}
+		li:hover{
+			color: #292929;
+			border: 4px solid #292929;
+			transition: .4s;
+		}
+	
+.vertical{
+	border-right: 1.5px solid black;
+	border-left: 1.5px solid black;
+}
+.horizontal{
+  	border-top: 1.5px solid black;
+	border-bottom : 1.5px solid black;
+}
+
+td{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	font-size: 45px;
+
+
+}
+td:hover{
+cursor: pointer;
+
+
+
+}
+table{
+	text-align : center;
+	margin: auto auto;
+	
+}
+h1{
+	
+			font-weight: bold;
+			font-size: 50px;
+			color: #fff;
+			text-align : center;
+		
+			
+
+	
+}
+
+	h2{
+			font-weight: lighter;
+			font-size: 30px;
+			color: #fff;
+			text-align :center;
+			padding-top: 20px;
+			margin-bottom: 0;
+
+		}
+div{
+	text-align: center;
+	padding-bottom: 50px;
+}
+.table1{
+	text-align: center;
+}
+.win{
+	color: white;
+	background: blue;
+	transition: all 0.6s;
+	font-size:70px;
+}
+.boxred{
+	background-color: red;
+	  transition: all 1s;
+}
+button{
+	font-size: 25px;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+    transition: all 0.6s;
+    font-weight: 700;
+	letter-spacing: 1px;
+	padding-bottom: 15px;
+}
+button:hover{
+	color:white;
+	background-color: steelblue;
+}
+.background{
+	background: green;
+}</style>
+</head>
+<body>
+
+	<h1>TIC TAC TOE</h1>
+<div class="stripe">
+	<button id="stripe"><a href="">Play again</a></button>
+</div>
+	
+	<div class="table1"><table>
+		<tr>
+		<td></td>
+		<td class="vertical"> </td>
+		<td>  </td>
+	</tr>
+
+	<tr>
+		<td class="horizontal"> </td>
+		<td class="vertical horizontal">  </td>
+		<td class="horizontal"></td>
+	</tr>
+
+
+<tr>
+		<td>   </td>
+		<td class="vertical">  </td>
+		<td> </td>
+	</tr>
+</table></div>
+<h2>Designed and developed by Dhritiraj Borah</h2>
+<div class="wrapper">
+	<h2>JOIN ME</h2>
+	<div class="media">
+	<ul>
+		<li><a href="https://www.facebook.com/dhriti.borah.52"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li> 
+		<li><a href="https://instagram.com/_dhritiraj.official_?fbclid=IwAR3qfG0gpEOusLVehgeiPkxN0a33rCM92LLQ9s3hsoh35mRScJI3ZviMil4"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+		<li><a href="https://www.linkedin.com/in/dhritiraj-borah-a0073b192"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+		<li><a href="https://twitter.com/DhritirajBorah1?fbclid=IwAR0Ipo_QqyT6x2Hy51bWX7HyQbY2dsKh8vj-SZyuUtd_O-iYg_jm-Kacx9A"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+	</ul>
+</div>
+
+</div>
+
+
+<!-- <script type="text/javascript" src="projecttictac.js"></script> -->
+<script type="text/javascript">var td = document.querySelectorAll("td");
+var reset= document.querySelector("button");
+var count =0;
+var h1= document.querySelector("h1");
+var body= document.querySelector("body");
+for(var i=0; i<td.length ;i++){
+	td[i].addEventListener("click", function(){
+		count++;
+		if(count%2 === 0){  
+       this.textContent ="O";}
+         else{
+       this.textContent ="X";
+      
+      }
+
+
+   
+	});
+
+
+}
+       for(var i=0; i<td.length ;i++){
+	td[i].addEventListener("click", function(){
+
+     	if(td[0].textContent===td[1].textContent && td[0].textContent === td[2].textContent){
+	         h1.classList.add("win");
+	         h1.textContent= td[0].textContent + " WINS";
+	         for(var j=0;j<3;j++){
+	         	td[j].classList.add("boxred");
+	         	
+	         }
+}
+
+if(td[6].textContent === td[7].textContent && td[6].textContent === td[8].textContent){
+             h1.classList.add("win");
+	         h1.textContent= td[6].textContent + " WINS";
+	         for(var j=6;j<9;j++){
+	         	td[j].classList.add("boxred");
+	         }
+
+}
+if(td[3].textContent === td[4].textContent && td[3].textContent === td[5].textContent){
+             h1.classList.add("win");
+	         h1.textContent= td[3].textContent + " WINS";
+	         for(var j=3;j<6;j++){
+	         	td[j].classList.add("boxred");
+	         }
+}
+if(td[0].textContent === td[4].textContent && td[0].textContent === td[8].textContent){
+             h1.classList.add("win");
+	         h1.textContent= td[4].textContent + " WINS";
+             td[0].classList.add("boxred");
+             td[4].classList.add("boxred");
+             td[8].classList.add("boxred");
+
+	     }
+ if(td[2].textContent === td[4].textContent && td[2].textContent === td[6].textContent){
+             h1.classList.add("win");
+	         h1.textContent= td[2].textContent + " WINS";
+             td[2].classList.add("boxred");
+             td[4].classList.add("boxred");
+             td[6].classList.add("boxred"); }
+
+
+ if(td[0].textContent === td[3].textContent && td[0].textContent === td[6].textContent){
+             h1.classList.add("win");
+	         h1.textContent= td[0].textContent + " WINS";
+             td[0].classList.add("boxred");
+             td[3].classList.add("boxred");
+             td[6].classList.add("boxred");
+
+	     }
+
+  if(td[1].textContent === td[4].textContent && td[1].textContent === td[7].textContent){
+             h1.classList.add("win");
+	         h1.textContent= td[1].textContent + " WINS";
+             td[1].classList.add("boxred");
+             td[4].classList.add("boxred");
+             td[7].classList.add("boxred");
+
+	     }
+
+if(td[2].textContent === td[5].textContent && td[2].textContent === td[8].textContent){
+             h1.classList.add("win");
+	         h1.textContent= td[2].textContent + " WINS";
+             td[2].classList.add("boxred");
+             td[5].classList.add("boxred");
+             td[8].classList.add("boxred");
+
+	     }
+
+
+
+
+   });
+}
+</script>
+<footer>
+	<hr>
+	<code>Copyright (c) Dhritiraj Borah</code>
+</footer>
+</body>
+</html>
+
+
+
+
+
